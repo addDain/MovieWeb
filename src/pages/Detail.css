@@ -1,0 +1,169 @@
+.detail {
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 50px;
+  width: 600px;
+  height: 90%;
+  padding-top: 50px;
+  border-radius: 5px;
+  background-color: #fff;
+  /* text-align: center; */
+}
+
+/* Movie_Data */
+.detail .movie_data {
+  text-align: center;
+}
+.detail img {
+  position: relative;
+  width: 60%;
+  /* margin-left: 100px; */
+  margin-bottom: 20px;
+}
+
+.detail ul,
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+.detail .movie_genre {
+  display: flex;
+  justify-content: space-around;
+  max-width: 500px;
+}
+
+/* Comments */
+.detail .comments_area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.detail .comments_area p {
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: rgb(113, 83, 162);
+  border-bottom: 1px solid #000;
+}
+.detail .comments {
+  width: 100%;
+}
+.detail .comments ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin-right: 30px; */
+  margin-left: 50px;
+  margin-left: 10px;
+  /* margin-left: 0; */
+}
+
+.detail .comments ul li {
+  /* border: 1px solid #c5c5c5; */
+  text-align: center;
+  border-bottom: 1px solid #c5c5c5;
+  border-radius: 3px;
+  padding: 2px;
+  /* color: #818080; */
+  color: rgb(113, 83, 162);
+  margin-bottom: 5px;
+}
+
+.detail .comments ul .username {
+  width: 145px;
+  height: 25px;
+  margin-left: -48px;
+  margin-right: 8px;
+}
+.detail .comments ul .comment {
+  width: 500px;
+}
+.detail .comments ul .commentBtn {
+  /* width: 200px; */
+  width: 40px !important;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  font-size: 20px;
+  color: rgb(113, 83, 162);
+  height: 30px;
+  /* margin-right: -45px; */
+  /* margin: 5px; */
+  padding: 5px;
+}
+
+.detail .comments ul .commentBtn:hover {
+  cursor: pointer;
+  /* border: 1px solid rgb(36, 113, 255); */
+  color: rgb(36, 113, 255);
+}
+
+.detail .new_comment {
+  display: flex;
+  align-items: center;
+  width: 600px;
+}
+
+.detail .new_comment input {
+  border-radius: 3px;
+  border: 1px solid #c5c5c5;
+  padding: 5px;
+  height: 20px;
+}
+
+.detail .new_comment .newUserName {
+  margin-right: 5px;
+}
+
+.detail .new_comment .userName {
+  color: rgb(113, 83, 162);
+  margin-left: -15px;
+  margin-right: 15px;
+  width: 155px;
+  text-align: center;
+  /* border-bottom: 1px solid #c5c5c5;
+  border-radius: 3px; */
+}
+
+.detail .new_comment .newText {
+  width: 430px;
+}
+
+.detail .new_comment button {
+  background-color: transparent;
+  border: 1px solid rgb(181, 137, 255);
+  border-radius: 3px;
+  width: 40px;
+  height: 30px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.detail .new_comment button:hover {
+  cursor: pointer;
+  background-color: rgb(181, 137, 255);
+  color: #fff;
+}
+
+.detail .deleteBtn {
+  font-size: 12px;
+  padding: 5px;
+  background-color: #fff;
+  /* color: rgb(113, 83, 162); */
+  position: absolute;
+  width: 80px;
+  height: 32px;
+  bottom: 20px;
+  right: 165px;
+  border: 0.8px solid rgb(181, 137, 255);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.detail .deleteBtn:hover {
+  cursor: pointer;
+  border: 1px solid rgb(36, 113, 255);
+  color: rgb(36, 113, 255);
+}

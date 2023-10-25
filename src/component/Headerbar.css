@@ -1,0 +1,95 @@
+.header {
+  width: 100vw;
+  height: 90px;
+  border-bottom: 1px solid transparent;
+  background: #fff;
+  box-shadow: 0 0 10px 0 rgba(181, 137, 255, 0.5),
+    0 8px 16px -8px rgba(61, 47, 84, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header .headerfun {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding-top: 20px; */
+}
+.header .search {
+  width: 300px;
+  height: 35px;
+  border: 1px solid rgb(181, 137, 255);
+  border-radius: 8px;
+  margin-right: 10px;
+  padding: 5px;
+}
+.header > img {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  cursor: pointer;
+  width: 110px;
+}
+
+.header button {
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: rgb(181, 137, 255);
+}
+
+.header fieldset {
+  border: none;
+  font-size: 18px;
+  line-height: 2rem;
+}
+
+[type="radio"]:hover {
+  cursor: pointer;
+}
+
+.header .addMovie {
+  margin-left: 10px;
+  border: 1px solid transparent;
+  background: rgb(181, 137, 255);
+  color: #fff;
+  border-radius: 5px;
+  font-size: 18px;
+  height: 32px;
+}
+
+.header .addMovie:hover {
+  background-color: rgb(97, 68, 145);
+  cursor: pointer;
+}
+
+.header .logout {
+  font-size: 16px;
+  padding: 5px;
+  border: 1px solid rgb(181, 137, 255);
+  background: #fff;
+  border-radius: 6px;
+  position: fixed;
+  top: 26px;
+  right: 20px;
+}
+
+.header .logout:hover {
+  background-color: rgb(181, 137, 255);
+  color: #fff;
+  cursor: pointer;
+}
+
+/* .header .newInfo .imgUpload {
+  display: flex;
+  flex-direction: column;
+}
+
+.header .newInfo .imgUpload img {
+  width: 300px;
+  height: 250px;
+} */
