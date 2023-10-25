@@ -1,12 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
-// import Movie from "../component/Movie";
 import service from "../service/service";
 import { Modal } from "antd";
 import "./Detail.css";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import { BiTrash } from "react-icons/bi";
-import axios from "axios";
 
 const Detail = ({ isModal, onCancel, movie }) => {
   const [data, setData] = useState(movie);
@@ -81,6 +78,17 @@ const Detail = ({ isModal, onCancel, movie }) => {
         list: [{ id: Date.now(), userName: userName, text: text }],
       };
       service
+        .add2Comment(id, push)
+        .then((res) => {
+          if (res.status === 200) {
+            getComments();
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
+      service
         .newComment(push)
         .then((res) => {
           if (res.status === 200) {
@@ -130,42 +138,37 @@ const Detail = ({ isModal, onCancel, movie }) => {
 
   // 댓글 삭제
   const commentDelete = (id, listId) => {
-    // const editComment = setComments(
-    //   comments.filter((comment) => comment.id !== id)
-    // );
-
     let editComment = comments.filter((comment) => comment.id !== listId);
     const payload = {
       id: id,
       list: editComment,
     };
-    service.deleteNewComment(id, payload).then((res) => {
-      if (res.status === 200) {
-        alert("삭제 성공!");
-      }
-    });
-    // if (userId === userName) {
-    //   window.confirm("댓글 삭제");
-    //   service
-    //     .deleteComment(id, editComment)
-    //     .then((res) => {
-    //       if (res.status === 200) {
-    //         alert("삭제 성공!");
-    //         removeComments();
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // } else {
-    //   return false;
-    // }
+    service
+      .deleteComment(id, payload)
+      .then((res) => {
+        if (res.status === 200) {
+          alert("삭제 성공!");
+          getComments();
+          updateComments();
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
-
-  const removeComments = () => {
-    service.updateComments(id).then((res) => {
-      setComments(res.data);
-    });
+  // 댓글 정보 업데이트
+  const updateComments = () => {
+    service
+      .upComments()
+      .then((res) => {
+        getComments();
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+      .finally(() => {
+        getComments();
+      });
   };
 
   const isAdmin = localStorage.getItem("grade") === "admin";
