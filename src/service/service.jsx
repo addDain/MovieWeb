@@ -75,6 +75,15 @@ const service = {
     );
     return response;
   },
+
+  async deleteNewComment(id, payload) {
+    const response = await axios.patch(
+      `http://localhost:3001/comments/${id}`,
+      payload
+    );
+    return response;
+  },
+
   // 댓글 업데이트 데이터 가져오기
   async updateComments(id, payload) {
     const response = await axios.get(

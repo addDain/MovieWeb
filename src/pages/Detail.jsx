@@ -129,27 +129,37 @@ const Detail = ({ isModal, onCancel, movie }) => {
   };
 
   // 댓글 삭제
-  const commentDelete = (id) => {
-    const editComment = setComments(
-      comments.filter((comment) => comment.id !== id)
-    );
+  const commentDelete = (id, listId) => {
+    // const editComment = setComments(
+    //   comments.filter((comment) => comment.id !== id)
+    // );
 
-    if (userId === userName) {
-      window.confirm("댓글 삭제");
-      service
-        .deleteComment(id, editComment)
-        .then((res) => {
-          if (res.status === 200) {
-            alert("삭제 성공!");
-            removeComments();
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } else {
-      return false;
-    }
+    let editComment = comments.filter((comment) => comment.id !== listId);
+    const payload = {
+      id: id,
+      list: editComment,
+    };
+    service.deleteNewComment(id, payload).then((res) => {
+      if (res.status === 200) {
+        alert("삭제 성공!");
+      }
+    });
+    // if (userId === userName) {
+    //   window.confirm("댓글 삭제");
+    //   service
+    //     .deleteComment(id, editComment)
+    //     .then((res) => {
+    //       if (res.status === 200) {
+    //         alert("삭제 성공!");
+    //         removeComments();
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.log(error);
+    //     });
+    // } else {
+    //   return false;
+    // }
   };
 
   const removeComments = () => {
@@ -206,7 +216,7 @@ const Detail = ({ isModal, onCancel, movie }) => {
                     <button
                       className="commentBtn"
                       style={{ width: "80px", marginLeft: 10 }}
-                      onClick={() => commentDelete(id)}
+                      onClick={() => commentDelete(id, item.id)}
                     >
                       <BiTrash />
                     </button>
