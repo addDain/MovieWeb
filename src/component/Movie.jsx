@@ -1,7 +1,8 @@
 import React from "react";
 import "./Movie.css";
 
-const Movie = ({ movie, setIsModal, setModalMovie }) => {
+const Movie = ({ movie, text, setIsModal, setModalMovie }) => {
+  // const { year, summary, medium_cover_image, genres, rating } = movie;
   const { title, year, summary, medium_cover_image, genres, rating } = movie;
 
   const setRating = () => {
@@ -26,8 +27,7 @@ const Movie = ({ movie, setIsModal, setModalMovie }) => {
     >
       <img src={medium_cover_image} alt={title} title={title} />
       <div className="movie_data">
-        <h2 className="movie_title">{title}</h2>
-        {/* <h2 className="movie_title">{matchedText(title)}</h2> */}
+        <h2 className="movie_title">{text || title}</h2>
         <h3 className="movie_year">{year}</h3>
         <p className="movie_rating">
           {setRating()}
@@ -41,6 +41,7 @@ const Movie = ({ movie, setIsModal, setModalMovie }) => {
             })}
         </ul>
         <p className="movie_summary">
+          {/* {summary} */}
           {summary !== null ? summary.slice(0, 150) : ""}...
         </p>
       </div>

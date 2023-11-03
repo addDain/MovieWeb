@@ -4,7 +4,7 @@ import "./Headerbar.css";
 import { useNavigate } from "react-router-dom";
 // import Logout from "../pages/Logout";
 import logo from "../logo.png";
-import SearchHighlighter from "./SerchHighlighter";
+// import SearchHighlighter from "./SerchHighlighter";
 
 const Headerbar = ({ handleSearch, handleStar, handleYear }) => {
   const [newInput, setNewInput] = useState();
@@ -14,7 +14,7 @@ const Headerbar = ({ handleSearch, handleStar, handleYear }) => {
 
   const handleInput = (e) => {
     setNewInput(e.target.value);
-    SearchHighlighter("sss", e.target.value);
+    // SearchHighlighter(e.target.value);
   };
 
   const onSearch = (e) => {

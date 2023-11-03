@@ -66,6 +66,8 @@ const service = {
     );
     return response;
   },
+
+  // JSON 파일에 id만 존재하고 list 데이터가 없을때 comment 업데이트
   async add2Comment(id, payload) {
     const response = await axios.patch(
       `http://localhost:3001/comments/${id}`,

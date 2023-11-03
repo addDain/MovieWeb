@@ -51,7 +51,6 @@ const Detail = ({ isModal, onCancel, movie }) => {
         setComments([]);
       });
   };
-
   useEffect(() => {
     getComments();
   }, []);
@@ -77,6 +76,7 @@ const Detail = ({ isModal, onCancel, movie }) => {
         id: data.id,
         list: [{ id: Date.now(), userName: userName, text: text }],
       };
+      // 기존 댓글 삭제 후 새 댓글 작성시 저장되어있는 id값 찾아 데이터 덮어쓰기
       service
         .add2Comment(id, push)
         .then((res) => {
@@ -88,6 +88,7 @@ const Detail = ({ isModal, onCancel, movie }) => {
           console.log(error);
         });
 
+      // 기존 댓글 없을때 새 댓글 추가
       service
         .newComment(push)
         .then((res) => {
@@ -100,19 +101,18 @@ const Detail = ({ isModal, onCancel, movie }) => {
         })
         .finally(() => {
           getComments();
-          // newName.current.value = "";
           newText.current.value = "";
         });
     } else {
       const push = {
         list: [...comments, { id: Date.now(), userName: userName, text: text }],
       };
+      // 기존 댓글 있을때 새 댓글 추가
       service
         .addComment(id, push)
         .then((res) => {
           if (res.status === 200) {
             getComments();
-            // newName.current.value = "";
             newText.current.value = "";
           }
         })
@@ -120,20 +120,6 @@ const Detail = ({ isModal, onCancel, movie }) => {
           console.log(error);
         });
     }
-  };
-
-  //영화 삭제
-  const onDelete = () => {
-    if (window.confirm("정말 삭제하시겠습니까?")) {
-      service.deleteMovie(id).then((res) => {
-        if (res.status === 200) {
-          alert("삭제 되었습니다.");
-        }
-      });
-    } else {
-      return;
-    }
-    window.location.reload();
   };
 
   // 댓글 삭제
@@ -156,7 +142,7 @@ const Detail = ({ isModal, onCancel, movie }) => {
         console.log(error);
       });
   };
-  // 댓글 정보 업데이트
+  // 삭제 후 댓글 정보 업데이트
   const updateComments = () => {
     service
       .upComments()
@@ -169,6 +155,20 @@ const Detail = ({ isModal, onCancel, movie }) => {
       .finally(() => {
         getComments();
       });
+  };
+
+  //영화 삭제 (어드민 계정 권한)
+  const onDelete = () => {
+    if (window.confirm("정말 삭제하시겠습니까?")) {
+      service.deleteMovie(id).then((res) => {
+        if (res.status === 200) {
+          alert("삭제 되었습니다.");
+        }
+      });
+    } else {
+      return;
+    }
+    window.location.reload();
   };
 
   const isAdmin = localStorage.getItem("grade") === "admin";
