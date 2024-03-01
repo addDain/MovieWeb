@@ -1,22 +1,4 @@
 {
-  "accounts": [
-    {
-      "login": [
-        {
-          "id": "admin",
-          "pw": "admin"
-        },
-        {
-          "id": "user1",
-          "pw": "1"
-        },
-        {
-          "id": "user2",
-          "pw": "2"
-        }
-      ]
-    }
-  ],
   "comments": [
     {
       "id": 30440,
@@ -851,7 +833,7 @@
       "medium_cover_image": "https://yts.mx/assets/images/movies/yuzuru_hanyu_ice_story_gift_at_tokyo_dome_2023/medium-cover.jpg",
       "large_cover_image": "https://yts.mx/assets/images/movies/yuzuru_hanyu_ice_story_gift_at_tokyo_dome_2023/large-cover.jpg",
       "state": "ok",
-      "like": false,
+      "like": true,
       "torrents": [
         {
           "url": "https://yts.mx/torrent/download/88CFA33765971FB36F4F1DDA792E43FC716677A8",
